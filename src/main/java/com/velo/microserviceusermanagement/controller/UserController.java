@@ -30,7 +30,7 @@ public class UserController {
 
         user.setRole(Role.USER);
         User result = userService.save(user);
-        return ResponseEntity.ok(result);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
 
     @GetMapping("/service/login")
