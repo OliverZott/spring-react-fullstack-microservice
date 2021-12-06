@@ -2,7 +2,6 @@ package com.velo.microserviceusermanagement.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -48,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/service/logout", "POST"));
 
         // login form
-        http.formLogin().loginPage("service/login");
+        http.formLogin().loginPage("/service/login");
 
         // enable basic header authentication
         http.httpBasic()
