@@ -1,3 +1,29 @@
+    -------------------------------------------------
+# Run / check application
+   
+- `http://localhost:8000`
+- `http://localhost:8000/service/instances`
+
+### JAR - Prerequisite:
+- Create Gradle Wrapper for application: `gradle wrapper`
+  https://docs.gradle.org/current/userguide/gradle_wrapper.html
+### JAR - Create and Run
+- Create **JAR**
+    - Local installations:
+        - `gradle clean build` or if maven:
+        - `mvn clean install`
+    - With wrapper (no local installation needed)
+        - `./gradlew clean build`
+
+- Run
+    - `java –jar <JARFILE> ` (inside */build/libs* )
+
+-------------------------------------------------
+# Liquibase
+Creates database and table-changes automatically when application is run,
+by using changelog files.
+
+
 # Repository
 
 https://www.baeldung.com/spring-data-jpa-query
