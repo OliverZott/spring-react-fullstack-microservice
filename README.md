@@ -1,8 +1,9 @@
-    -------------------------------------------------
+-------------------------------------------------
 # Run / check application
    
 - `http://localhost:8000`
 - `http://localhost:8000/service/instances`
+- `http://localhost:8000/service/all`
 
 ### JAR - Prerequisite:
 - Create Gradle Wrapper for application: `gradle wrapper`

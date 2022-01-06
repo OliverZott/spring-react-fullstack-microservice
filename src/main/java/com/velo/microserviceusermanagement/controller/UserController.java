@@ -3,7 +3,6 @@ package com.velo.microserviceusermanagement.controller;
 import com.velo.microserviceusermanagement.model.Role;
 import com.velo.microserviceusermanagement.model.User;
 import com.velo.microserviceusermanagement.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.core.env.Environment;
@@ -11,24 +10,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.List;
 
 @RestController
 public class UserController {
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
-    @Autowired
-    private Environment env;
+    private final UserService userService;
+    private final DiscoveryClient discoveryClient;
+    private final Environment env;
 
     @Value("${spring.application.name}")
     private String serviceId;
+
+    public UserController(UserService userService, DiscoveryClient discoveryClient, Environment env) {
+        this.userService = userService;
+        this.discoveryClient = discoveryClient;
+        this.env = env;
+    }
 
     @GetMapping("/service/port")
     public String getPort() {
